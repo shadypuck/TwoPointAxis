@@ -59,7 +59,7 @@
 
 \subsection*{Motivation and Goal}
 Generalize Question 49 of Section I of the 1993 AP Physics C: Electricity and Magnetism examination to the following: given Figure \ref{fig:2charges}, find the distance from the origin $O$ to all points along the $x$-axis where the net electric potential is equal to zero.\par
-There is a conventional way to solve this type of problem that unfortunately lacks much of a connection to conceptual physics. This method will be explored first, along with its shortcomings. To correct its mistakes, a second method will be proposed, applying a mathematical model that captures the underlying physics in a superior manner. Two methods of solving this second model will be explored --- a simple but redundant method, and a more elegant algorithm.\par
+There is a conventional way to solve this type of problem that unfortunately lacks much of a connection to conceptual physics. This method will be explored first, along with its shortcomings. To correct its mistakes, a second method will be proposed, applying a mathematical model that captures the underlying physics with greater clarity. Two methods of solving this second model will be explored --- a simple but redundant method, and a more elegant algorithm.\par
 Lastly, a surprising connection between the first and the second method will be explored.
 
 
@@ -69,7 +69,7 @@ The electric potential, or voltage $V$, given as a function of the linear distan
     V=\frac{kq}{r}
 \end{equation*}
 Thus, the voltage along the $x$-axis caused solely by the point charge of magnitude $+Q$ a distance $r$ from said charge is $$V=\frac{kQ}{r}$$Likewise, the voltage along the $x$-axis caused solely by the point charge of magnitude $-2Q$ a distance $r'$ from said charge is $$V'=\frac{k(-2Q)}{r'}=\frac{-2kQ}{r'}$$As is implied by the notation\footnote{This is very important to recognize.}, $r\neq r'$. Indeed, the two voltage functions operate on \emph{distinct} coordinate systems; because $r$ and $r'$ are distances \emph{relative} to their respective point charges, \emph{they have no bearing on each other}.\par
-Of course, in order to solve the problem, $r$ and $r'$ must be related to each other. Further yet, they must be related to the absolute coordinate system determined by the set placement of the origin. Therefore, it is necessary to find $r$ and $r'$ as a function of a distance $x$ from the origin along the $x$-axis. Consider Figure \ref{fig:rAndrPrime} to help visualize this goal.
+Of course, in order to solve the problem, $r$ and $r'$ must be related to each other. Furthermore, they must be related to the absolute coordinate system determined by the set placement of the origin. Therefore, it is necessary to find $r$ and $r'$ as a function of a distance $x$ from the origin along the $x$-axis. Consider Figure \ref{fig:rAndrPrime} to help visualize this goal.
 
 \begin{figure}[h!]
     \centering
@@ -155,7 +155,7 @@ From the question, it appears that $V$ and $V'$ must satisfy $$\sum V=V+V'=0$$ H
     \label{fig:2points}
 \end{figure}
 
-Graphically, these points would fall along the $x$-axis at the points $P$ and $P'$ shown in Figure \ref{fig:2points}. Considering Figure \ref{fig:2points} may well convince the reader that the above solutions (and only the above solutions) are valid, even if doubt about the mechanics of this conventional method persists.
+Graphically, these points would fall along the $x$-axis at the points $P$ and $P'$, as shown in Figure \ref{fig:2points}. Considering Figure \ref{fig:2points} may well convince the reader that the above solutions (and only the above solutions) are valid, even if doubt about the mechanics of this conventional method persists.
 
 \subsubsection*{Shortcomings}
 The major issue with the conventional method was already referenced: The seemingly inexplicable fact that $V-V'=0$ gives a valid solution. However, there is another problem, which partially explains the previous issue: Distance from a point charge is always a positive number, yet $2D-x$ and $D-x$, which the conventional method sets \emph{equal} to $r$ and $r'$, respectively, return negative outputs for many values of $x$.\par
@@ -258,7 +258,7 @@ Simplify to remove extraneous terms and eliminate the fractions.
     |D-x| &= 2|2D-x|\stepcounter{equation}\tag{\theequation}\label{eqn:abs}
 \end{align*}
 To evaluate $|f|$, where $f$ is some function, write two new equations. One of these new equations will have $f$ substituted for $|f|$, and the other will have $-f$ substituted for $|f|$. Thus, since each absolute value splits an equation into two, and there are two absolute value expressions present in Equation \ref{eqn:abs}, it will split into four parts. Each of these four parts can, in turn, be solved for a value of $x$. Note that since only two distinct answers are to be expected from the four equations, there will be some redundancy involved in these calculations.\par
-The division of the above equation is visually captured in Figure \ref{fig:tree}\footnote{Note that switching the order of a difference of two terms is another way of multiplying it by $-1$.}.
+The division of Equation \ref{eqn:abs} is visually captured in Figure \ref{fig:tree}\footnote{Note that switching the order of a difference of two terms is another way of multiplying it by $-1$.}.
 
 \begin{figure}[h!]
     \centering
@@ -311,8 +311,8 @@ As expected, each solution appears twice in Figure \ref{fig:tree}. Although it m
 To eliminate the repetition in other problems of this type, any pair of distinct pathways could be eliminated. However, this is a rather unscientific process, so it is probably better to deal with the extra work.
 
 \subsubsection*{Factoring a Binomial}
-Although the above method of evaluating $\sum V = 0$ is certainly better than the conventional method, it is still imperfect due to the unnecessary calculations. To tidy up the algorithm for evaluating Equation \ref{eqn:abs}\footnote{Start here instead of at the beginning of the previous section because it is with the absolute values that the problems emerge.}, make an assumption: Where there are two solutions, there is a binomial.\par
-Consider how to find such a binomial. For starters, realize that it is necessary to ensure that $D-x$ and $2D-x$ always return positive values. However, they need not return their magnitude, exactly, per say. Therefore, let's consider other methods of ensuring positive values for $D-x$ and $2D-x$. One such way is to square them. Therefore, try squaring both sides of Equation \ref{eqn:abs}, yielding the following\footnote{The absolute values have been removed because they are unnecessary, given the squaring.}.
+Although the above method of evaluating $\sum V = 0$ is certainly better than the conventional method, it is still imperfect due to the unnecessary calculations. To tidy up the algorithm for evaluating Equation \ref{eqn:abs}\footnote{Start here instead of at the beginning of the previous section because it is with the absolute values in Equation \ref{eqn:abs} that the problems emerge.}, make an assumption: Where there are two solutions, there is a binomial.\par
+Consider how to find such a binomial. For starters, realize that it is necessary to ensure that $D-x$ and $2D-x$ always return positive values. However, they need not return their magnitude, exactly, per se. Therefore, let's consider other methods of ensuring positive values for $D-x$ and $2D-x$. One such way is to square them. Therefore, try squaring both sides of Equation \ref{eqn:abs}, yielding the following\footnote{The absolute values have been removed because they are unnecessary, given the squaring.}.
 \begin{equation*}
     (D-x)^2=4(2D-x)^2
 \end{equation*}
@@ -339,7 +339,7 @@ As a parting comment, relating this problem to a binomial means that the very we
 
 
 \subsection*{Connecting the Conventional and the New Methods}
-The conventional method provides two equations (Equations \ref{eqn:Vinitial} and \ref{eqn:VprimeInitial}), each of which has one zero, or $x$-intercept. Considering $V$ and $V'$ as defined by these equations, $V+V'$ and $V-V'$ can be graphically represented by by the orange and green curves, respectively, in Figure \ref{fig:connectingGrapha}.
+The conventional method provides two equations (Equations \ref{eqn:Vinitial} and \ref{eqn:VprimeInitial}), each of which has one zero, or $x$-intercept. Considering $V$ and $V'$ as defined by these equations, $V+V'$ and $V-V'$ can be graphically represented by the orange and green curves, respectively, in Figure \ref{fig:connectingGrapha}.
 
 \begin{figure}[h!]
     \centering
